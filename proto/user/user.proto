@@ -1,0 +1,70 @@
+syntax = "proto3";
+package user;
+option go_package = "github.com/your-org/users-service/proto/user";
+
+// Сущность пользователь
+message User {
+  uint32 id = 1;
+  string email = 2;
+  string name = 3;
+}
+
+// Запросы и ответы для Create
+message CreateUserRequest {
+  string email = 1;
+  string name = 2;
+}
+
+message CreateUserResponse {
+  User user = 1;
+}
+
+// Запросы и ответы для Get
+message GetUserRequest {
+  uint32 id = 1;
+}
+
+message GetUserResponse {
+  User user = 1;
+}
+
+// Запросы и ответы для Update
+message UpdateUserRequest {
+  uint32 id = 1;
+  string email = 2;
+  string name = 3;
+}
+
+message UpdateUserResponse {
+  User user = 1;
+}
+
+// Запросы и ответы для Delete
+message DeleteUserRequest {
+  uint32 id = 1;
+}
+
+message DeleteUserResponse {
+  bool success = 1;
+}
+
+// Запросы и ответы для List
+message ListUsersRequest {
+  uint32 page = 1;
+  uint32 limit = 2;
+}
+
+message ListUsersResponse {
+  repeated User users = 1;
+  uint32 total = 2;
+}
+
+// UserService с полным CRUD
+service UserService {
+  rpc CreateUser (CreateUserRequest) returns (CreateUserResponse);
+  rpc GetUser (GetUserRequest) returns (GetUserResponse);
+  rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse);
+  rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse);
+  rpc ListUsers (ListUsersRequest) returns (ListUsersResponse);
+  rpc GetAllUsers (GetAllUsersRequest) returns (GetAllUsersResponse); 
+}
