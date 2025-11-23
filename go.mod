@@ -3,14 +3,14 @@ module github.com/enikili/users-service
 go 1.24.3
 
 require (
+	github.com/enikili/project-protos v0.0.0-20251123171921-191b87222e68
 	google.golang.org/grpc v1.77.0
-	google.golang.org/protobuf v1.36.10
 	gorm.io/gorm v1.31.1
 )
 
 require (
-	github.com/enikili/project-protos v0.0.0-20251121151204-dbc58200e647 // indirect
 	github.com/mattn/go-sqlite3 v1.14.22 // indirect
+	google.golang.org/protobuf v1.36.10 // indirect
 )
 
 require (

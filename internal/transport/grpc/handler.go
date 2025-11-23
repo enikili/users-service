@@ -97,7 +97,7 @@ func (h *Handler) DeleteUser(ctx context.Context, req *userpb.DeleteUserRequest)
 }
 
 func (h *Handler) ListUsers(ctx context.Context, req *userpb.ListUsersRequest) (*userpb.ListUsersResponse, error) {
-	log.Printf("Listing users, page: %d, limit: %d", req.GetPage(), req.GetLimit())
+	log.Printf("Listing all users")
 
 	users, err := h.svc.GetAllUsers()
 	if err != nil {
@@ -105,21 +105,11 @@ func (h *Handler) ListUsers(ctx context.Context, req *userpb.ListUsersRequest) (
 		return nil, err
 	}
 
-	// Простая реализация пагинации
-	start := (req.GetPage() - 1) * req.GetLimit()
-	end := req.GetPage() * req.GetLimit()
-
-	if start > uint32(len(users)) {
-		start = uint32(len(users))
-	}
-	if end > uint32(len(users)) {
-		end = uint32(len(users))
-	}
-
-	paginatedUsers := users[start:end]
+	log.Printf("Found %d users in database", len(users))
 
 	var userProtos []*userpb.User
-	for _, u := range paginatedUsers {
+	for _, u := range users {
+		log.Printf("Processing user: ID=%d, Email=%s, Name=%s", u.ID, u.Email, u.Name)
 		userProtos = append(userProtos, &userpb.User{
 			Id:    uint32(u.ID),
 			Email: u.Email,
@@ -129,9 +119,8 @@ func (h *Handler) ListUsers(ctx context.Context, req *userpb.ListUsersRequest) (
 
 	response := &userpb.ListUsersResponse{
 		Users: userProtos,
-		Total: uint32(len(users)),
 	}
 
-	log.Printf("Returning %d users out of %d total", len(userProtos), len(users))
+	log.Printf("Returning %d users in response", len(userProtos))
 	return response, nil
 }
