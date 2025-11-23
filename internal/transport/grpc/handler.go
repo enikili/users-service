@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	userpb "github.com/enikili/users-service/proto/user"
+	userpb "github.com/enikili/project-protos/proto/user"
 	"github.com/enikili/users-service/internal/user"
 )
 

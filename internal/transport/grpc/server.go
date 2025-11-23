@@ -5,8 +5,8 @@ import (
 	"log"
 	"net"
 
+	userpb "github.com/enikili/project-protos/proto/user"
 	"github.com/enikili/users-service/internal/user"
-	userpb "github.com/enikili/users-service/proto/user" // ТОТ ЖЕ ПУТЬ!
 	"google.golang.org/grpc"
 )
 

@@ -8,7 +8,10 @@ require (
 	gorm.io/gorm v1.31.1
 )
 
-require github.com/mattn/go-sqlite3 v1.14.22 // indirect
+require (
+	github.com/enikili/project-protos v0.0.0-20251121151204-dbc58200e647 // indirect
+	github.com/mattn/go-sqlite3 v1.14.22 // indirect
+)
 
 require (
 	github.com/jinzhu/inflection v1.0.0 // indirect

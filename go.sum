@@ -1,3 +1,5 @@
+github.com/enikili/project-protos v0.0.0-20251121151204-dbc58200e647 h1:IX4Cn6dgnO0EWSCgSQ7izO8qraVu7WXi87+mps4pgJY=
+github.com/enikili/project-protos v0.0.0-20251121151204-dbc58200e647/go.mod h1:v1fTOR+COZsDvFtdxb2gswF+U5KpmTSXjl+SAVRMHSc=
 github.com/go-logr/logr v1.4.3 h1:CjnDlHq8ikf6E492q6eKboGOC0T8CDaOvkHCIg8idEI=
 github.com/go-logr/logr v1.4.3/go.mod h1:9T104GzyrTigFIr8wt5mBrctHMim0Nb2HLGrmQ40KvY=
 github.com/go-logr/stdr v1.2.2 h1:hSWxHoqTgW2S2qGc0LTAI563KZ5YKYRhT3MFKZMbjag=
